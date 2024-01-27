@@ -1,6 +1,7 @@
-FROM milic/jenkins-agent:make
+FROM jenkins/inbound-agent:latest-bookworm-jdk17
 USER root
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install -y git 
+RUN apt-get install apt-transport-https ca-certificates curl -y 
 
 # Set environment variables for Go
 ENV GOLANG_VERSION 1.21.6
@@ -8,7 +9,7 @@ ENV GOPATH /go
 ENV PATH \$GOPATH/bin:/usr/local/go/bin:\$PATH
 
 # Install Go
-RUN curl -fsSLo golang.tar.gz "https://go.dev/dl/go1.21.6.linux-amd64.tar.gz"  
+RUN curl -fsSLo golang.tar.gz https://go.dev/dl/go1.21.6.linux-amd64.tar.gz  
 RUN tar -C /usr/local -xzf golang.tar.gz 
 RUN rm golang.tar.gz
 
