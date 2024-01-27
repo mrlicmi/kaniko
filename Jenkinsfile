@@ -1,13 +1,8 @@
 pipeline {
-
     agent {
         label 'jenkins-agent-make'
     }
-
-
     stages { 
-
-    
         stage('Push container build job - kaniko') {
             steps {
                 withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
@@ -16,8 +11,5 @@ pipeline {
                 }
             }
         }
-
-        
-
     }
 }
