@@ -1,6 +1,6 @@
 FROM milic/jenkins-agent:make
 USER root
-RUN apt-get update && apt-get install -y  
+RUN apt-get update && apt-get install -y curl
 
 # Set environment variables for Go
 ENV GOLANG_VERSION 1.21.6
