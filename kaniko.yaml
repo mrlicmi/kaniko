@@ -4,17 +4,17 @@ metadata:
   name: kaniko
 spec:
   completions: 1
-  backoffLimit: 2
-  ttlSecondsAfterFinished: 120
+  backoffLimit: 1
+  ttlSecondsAfterFinished: 30
   template:
     spec:
       containers:
       - name: kaniko
         image: gcr.io/kaniko-project/executor:latest
-        args: ["--dockerfile=Dockerfile-goapp",
-                "--context=git://github.com/gscho/simple-go-app.git",
-                "--destination=milic/appgo:latest",
-                "--cache=true"]
+        args: ["--dockerfile=/simple-go-app/Dockerfile",
+               "--context=git://github.com/gscho/simple-go-app.git",
+               "--destination=milic/appgo:latest",
+               "--cache=true"]
         volumeMounts:
           - name: kaniko-secret
             mountPath: /kaniko/.docker
