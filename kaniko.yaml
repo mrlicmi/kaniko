@@ -10,7 +10,7 @@ spec:
       - name: kaniko
         image: gcr.io/kaniko-project/executor:latest
         args: ["--dockerfile=Dockerfile-jenkins-agent-inbound-go",
-                "--context=git://github.com/agavitalis/kaniko-kubernetes.git",
+                "--context=git://github.com/mrlicmi/kaniko.git",
                 "--destination=milic/jenkins-agent:go",
                 "--cache=true"]
         volumeMounts:
