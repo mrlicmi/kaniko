@@ -11,9 +11,9 @@ spec:
       containers:
       - name: kaniko
         image: gcr.io/kaniko-project/executor:latest
-        args: ["--dockerfile=Dockerfile-jenkins-agent-inbound-go",
-                "--context=git://github.com/mrlicmi/kaniko.git",
-                "--destination=milic/jenkins-agent:go",
+        args: ["--dockerfile=Dockerfile-goapp",
+                "--context=git://github.com/gscho/simple-go-app.git",
+                "--destination=milic/appgo:latest",
                 "--cache=true"]
         volumeMounts:
           - name: kaniko-secret
