@@ -3,7 +3,9 @@ kind: Job
 metadata:
   name: kaniko
 spec:
-  ttlSecondsAfterFinished: 55
+  completions: 1
+  backoffLimit: 2
+  ttlSecondsAfterFinished: 120
   template:
     spec:
       containers:
